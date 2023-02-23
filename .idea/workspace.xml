@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9d0bae56-dea9-4ca7-9722-b551b8216e55" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/batch.py" beforeDir="false" afterPath="$PROJECT_DIR$/batch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/draw.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/draw.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/envs.py" beforeDir="false" afterPath="$PROJECT_DIR$/envs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/logger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_10_r_1/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_10_r_1/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_10_r_1/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_10_r_1/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_1_r_1/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_1_r_1/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_1_r_1/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_1_r_1/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_1_r_2/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_1_r_2/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_1_r_2/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_1_r_2/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_2_r_1/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_2_r_1/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_2_r_1/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_2_r_1/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_5_r_1/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_5_r_1/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_5_r_1/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_results/q_5_r_1/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_tensorboard_results/q_10_r_1/events.out.tfevents.1666847737.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_tensorboard_results/q_1_r_1/events.out.tfevents.1666853249.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_tensorboard_results/q_1_r_1/events.out.tfevents.1667203959.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_tensorboard_results/q_1_r_1/events.out.tfevents.1667204321.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_tensorboard_results/q_1_r_1/events.out.tfevents.1667204504.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_tensorboard_results/q_1_r_2/events.out.tfevents.1666855052.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_tensorboard_results/q_2_r_1/events.out.tfevents.1666851453.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise_tensorboard_results/q_5_r_1/events.out.tfevents.1666849610.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/policy/PPOPolicy.py" beforeDir="false" afterPath="$PROJECT_DIR$/policy/PPOPolicy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_10_r_1/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_10_r_1/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_10_r_1/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_10_r_1/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_1/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_1/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_1/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_1/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_10/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_10/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_10/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_10/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_2/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_2/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_2/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_2/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_5/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_5/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_5/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_1_r_5/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_2_r_1/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_2_r_1/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_2_r_1/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_2_r_1/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_5_r_1/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_5_r_1/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_5_r_1/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/q_5_r_1/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_10_r_1/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_10_r_1/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_10_r_1/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_10_r_1/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_1/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_1/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_1/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_1/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_10/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_10/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_10/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_10/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_20/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_20/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_20/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_20/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_5/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_5/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_5/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_1_r_5/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_20_r_1/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_20_r_1/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_20_r_1/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_20_r_1/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_5_r_1/model/Anet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_5_r_1/model/Cnet.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_5_r_1/test_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results_2/q_5_r_1/train_record.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results/q_10_r_1/events.out.tfevents.1668079429.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results/q_1_r_1/events.out.tfevents.1668087130.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results/q_1_r_10/events.out.tfevents.1668115307.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results/q_1_r_10/events.out.tfevents.1668135068.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results/q_1_r_2/events.out.tfevents.1668092699.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results/q_1_r_2/events.out.tfevents.1668104112.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results/q_1_r_5/events.out.tfevents.1668109692.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results/q_2_r_1/events.out.tfevents.1668086229.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results/q_2_r_1/events.out.tfevents.1668098520.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results/q_5_r_1/events.out.tfevents.1668084954.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results/q_5_r_1/events.out.tfevents.1668092878.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results_2/q_10_r_1/events.out.tfevents.1668183086.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results_2/q_1_r_1/events.out.tfevents.1668202054.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results_2/q_1_r_10/events.out.tfevents.1668192596.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results_2/q_1_r_20/events.out.tfevents.1668239827.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results_2/q_1_r_5/events.out.tfevents.1668211500.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results_2/q_20_r_1/events.out.tfevents.1668230379.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorboard_results_2/q_5_r_1/events.out.tfevents.1668220929.qry-ROG-Strix-G713QR-G713QR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weight/Evalpoint/best_model.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weight/Log/evaluations.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weight/model.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weight2/Evalpoint/best_model.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weight2/Log/evaluations.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weighted_env.py" beforeDir="false" afterPath="$PROJECT_DIR$/weighted_env.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2JXmFJGxCn4auo2kXqiLDGHNfcq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9d0bae56-dea9-4ca7-9722-b551b8216e55" name="Changes" comment="" />
+      <created>1672232698707</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672232698707</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
