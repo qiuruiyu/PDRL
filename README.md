@@ -1,5 +1,2 @@
 # Parametric Reinforcement Learning: Optimize Weights to Fit Different Operation Polices in Generalized Tasks for Linear Systems 
 
-There are more and more different working conditions and operation policy requirements in process problems. Sometimes operations are fast and aggressive to shorten the rise time, while sometimes are conservative and smooth to avoid overshoot. At the same time, Deep Reinforcement Learning (DRL) is becoming notable for its outstanding performance and generalization in exploring controlling policies in various problems compared with traditional controllers. However, it is difficult for one agent to deal with all policy patterns, and it wastes time to train a new agent when in need. To solve the problem, paper proposed Parametric Reinforcement Learning (PDRL) for linear systems. Some base agents are trained in advance, and the characteristic of control policy is represented
-with a parameter, so that the target can be tailored with bases to save time. To test the methods, Shell benchmark problem is used for case study.
-
