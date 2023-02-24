@@ -11,7 +11,7 @@ import numpy as np
 import scipy.linalg
 from stable_baselines3.common.env_util import make_vec_env
 
-logger = Logger.get_logger(__name__)
+logger = Logger.get_logger(__name__)  
 
 param_list: List[Params] = [] 
 
