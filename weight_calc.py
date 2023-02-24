@@ -155,7 +155,8 @@ def difference(w, yt, du1, du2, win, ans='norm'):
         return yk, yu
         '''
         return np.stack(yk), u, res
-    
+
+
 def cons1(x, du1, du2, win):
     u1 = np.cumsum(du1, axis=0) * 0.05
     u2 = np.cumsum(du2, axis=0) * 0.05
@@ -167,22 +168,23 @@ def cons1(x, du1, du2, win):
     du = u[1:, :] - u[:-1, :]
     return -np.prod(0.05-du+1e-8>0) - np.prod(du+0.05+1e-8>0) + 2 - 1e-8
 
+
 def draw(y1, y2, yt, yk):
     fig, axs = plt.subplots(3, 1, figsize=(12, 6), dpi=100)
-    # axs[0].plot(y1.T[:, 0], color='r', label='base 1')
-    # axs[0].plot(y2.T[:, 0], color='b', label='base 2')
+    axs[0].plot(y1.T[:, 0], color='r', label='base 1')
+    axs[0].plot(y2.T[:, 0], color='b', label='base 2')
     axs[0].plot(yt.T[:, 0], color='g', label='target')
     axs[0].plot(yk[:, 0], color='black', linestyle='--', label='PDRL')
     axs[0].set_ylabel('$y_1$')
 
-    # axs[1].plot(y1.T[:, 1], color='r')
-    # axs[1].plot(y2.T[:, 1], color='b')
+    axs[1].plot(y1.T[:, 1], color='r')
+    axs[1].plot(y2.T[:, 1], color='b')
     axs[1].plot(yt.T[:, 1], color='g')
     axs[1].plot(yk[:, 1], color='black', linestyle='--')
     axs[1].set_ylabel('$y_2$')
 
-    # axs[2].plot(y1.T[:, 2], color='r')
-    # axs[2].plot(y2.T[:, 2], color='b')
+    axs[2].plot(y1.T[:, 2], color='r')
+    axs[2].plot(y2.T[:, 2], color='b')
     axs[2].plot(yt.T[:, 2], color='g')
     axs[2].plot(yk[:, 2], color='black', linestyle='--')
     axs[2].set_ylabel('$y_3$')
