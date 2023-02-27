@@ -174,8 +174,8 @@ class ShellEnv(gym.Env):
         '''
         reward function 
         '''
-        self.q = np.array([1, 1, 1])
-        self.r = np.array([1, 1, 1])
+        # self.q = np.array([1, 1, 1])
+        # self.r = np.array([1, 1, 1])
         reward -= np.sum(self.q.dot(e**2) + self.r.dot(self.du**2))
         # reward -= np.sum(self.q.dot(np.abs(e)) + self.r.dot(np.abs(self.du)))
 

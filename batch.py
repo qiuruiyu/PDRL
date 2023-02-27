@@ -19,7 +19,8 @@ num_workers = 10
 
 q_r_pair = [
     # (1, 1)
-    (1, 1), (1, 3), (1, 5), (1, 7), (1, 9)
+    # (1, 1), (1, 3), (1, 5), (1, 7), (1, 9)
+    (1, 1)
 ]
 
 num_episode = {
@@ -105,7 +106,8 @@ if __name__ == "__main__":
         #     learning_rate=square_schedule(7e-4),
         #     env=env,
         #     verbose=1,
-        #     tensorboard_log='./tmp/tensorboard/q_'+str(q)+'_r_'+str(r),
+        #     device='cpu'
+        #    # tensorboard_log='./tmp/tensorboard/q_'+str(q)+'_r_'+str(r),
         # )
 
         # agent.learn(total_timesteps=6000000, callback=callback)
@@ -116,6 +118,6 @@ if __name__ == "__main__":
             logger = logger, 
             q = q,
             r = r, 
-            args = param
+            args = Params()
         )
         ppo.train()
