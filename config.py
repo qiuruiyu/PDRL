@@ -1,5 +1,5 @@
-from dataclasses import dataclass, field
-from typing import List, Tuple, Union
+from dataclasses import dataclass
+from typing import Union
 import torch
 
 
@@ -43,18 +43,6 @@ class Params:
     net_structure_log = False
     net_structure_logger_path = './network/'
     tensorboard_log = False
-    tensorboard_logger_path = './tensorboard_results_1205/'
+    tensorboard_logger_path = './paper_pic_res_log/'
     save_data = True
-    data_path = './results_1129/'
-
-
-@dataclass 
-class Weight_Params:
-    qr_list = [
-        # (1, 1), (1, 3), (1, 30)
-        (10, 1), (1, 3), (1, 10), (1, 30)
-        # (10, 1), (1, 10), (1, 30)
-    ]
-
-    noise: Union[float, None] = 0
-    base_agent_verbose: bool = True
+    data_path = './paper_pic_res/'

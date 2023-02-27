@@ -1,8 +1,8 @@
 from typing import List, Callable
 from config import Params
 from logger import Logger
-# from policy.PPOPolicy import PPO
-from stable_baselines3 import PPO
+from policy.PPOPolicy import PPO
+# from stable_baselines3 import PPO
 from stable_baselines3.common.callbacks import EvalCallback, CallbackList
 from stable_baselines3.common.utils import Schedule, set_random_seed
 from utils import make_env
@@ -18,8 +18,8 @@ param_list: List[Params] = []
 num_workers = 10
 
 q_r_pair = [
-    (1, 1)
-    # (1, 1), (1, 3), (1, 5), (1, 10), (3, 1), (5, 1), (10, 1)
+    # (1, 1)
+    (1, 1), (1, 3), (1, 5), (1, 7), (1, 9)
 ]
 
 num_episode = {
@@ -53,7 +53,7 @@ if __name__ == "__main__":
                 q=q,
                 r=r,
                 num_workers=num_workers,
-                num_episode=6000,
+                num_episode=3000,
                 adversary_attack=adv,
                 loss_upper_kl_coef=0.005, 
                 early_stop_episode=99999
@@ -63,6 +63,7 @@ if __name__ == "__main__":
     for param in param_list:
         # try:
         q, r = param.q, param.r
+        print('START TRAINIG: q - {}, r - {}'.format(q, r))
         # env = make_env("1", q, r)
 
         P = 30
@@ -82,41 +83,39 @@ if __name__ == "__main__":
 #             env_kwargs={'Tsim': 100, 'Q':base_Q*q, 'R':base_R*r, 'gamma':0.95}
 # )
 
-        evalCallback = EvalCallback(
-                eval_env=env,
-                eval_freq=5000,
-                n_eval_episodes=10,
-                # callback_after_eval=stop_train_callback,
-                log_path='./tmp/q_'+str(q)+'_r_'+str(r)+'/Log',
-                best_model_save_path='./tmp/q_'+str(q)+'_r_'+str(r)+'/Evalpoint',
-                deterministic=True,  
-                render=False,
-            )
+        # evalCallback = EvalCallback(
+        #         eval_env=env,
+        #         eval_freq=5000,
+        #         n_eval_episodes=10,
+        #         # callback_after_eval=stop_train_callback,
+        #         log_path='./tmp/q_'+str(q)+'_r_'+str(r)+'/Log',
+        #         best_model_save_path='./tmp/q_'+str(q)+'_r_'+str(r)+'/Evalpoint',
+        #         deterministic=True,  
+        #         render=False,
+        #     )
         # stop_train_callback = StopTrainingOnNoModelImprovement(
         #         max_no_improvement_evals=100, 
         #         min_evals=300,
         #         verbose=1
         #     )
-        callback = CallbackList([evalCallback])
+        # callback = CallbackList([evalCallback])
 
-        agent = PPO(
-            policy='MlpPolicy',
-            learning_rate=square_schedule(7e-4),
-            env=env,
-            verbose=1,
-            tensorboard_log='./tmp/tensorboard/q_'+str(q)+'_r_'+str(r),
-        )
-
-        agent.learn(total_timesteps=6000000, callback=callback)
-        agent.save('./tmp/q_'+str(q)+'_r_'+str(r)+'/model')
-
-        # ppo = PPO(
-        #     env = env,
-        #     logger = logger, 
-        #     q = q,
-        #     r = r, 
-        #     args = param
+        # agent = PPO(
+        #     policy='MlpPolicy',
+        #     learning_rate=square_schedule(7e-4),
+        #     env=env,
+        #     verbose=1,
+        #     tensorboard_log='./tmp/tensorboard/q_'+str(q)+'_r_'+str(r),
         # )
-        # ppo.train() 
-        # except Exception as e:
-        #     print("{}, {} error".format(param.q, param.r))
+
+        # agent.learn(total_timesteps=6000000, callback=callback)
+        # agent.save('./tmp/q_'+str(q)+'_r_'+str(r)+'/model')
+
+        ppo = PPO(
+            env = env,
+            logger = logger, 
+            q = q,
+            r = r, 
+            args = param
+        )
+        ppo.train()
