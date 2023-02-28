@@ -38,13 +38,11 @@ class Actor(nn.Module):
         self.action_high = action_high
         self.fc1 = nn.Linear(self.in_dim, 64)
         self.fc2 = nn.Linear(64, 64)
-        self.fc3 = nn.Linear(128, 64)
         self.mu_head = nn.Linear(64, self.out_dim)
         self.sigma_head = nn.Linear(64, self.out_dim)
 
         nn.init.orthogonal_(self.fc1.weight, gain=1)
         nn.init.orthogonal_(self.fc2.weight, gain=1)
-        nn.init.orthogonal_(self.fc3.weight, gain=1)
         nn.init.orthogonal_(self.mu_head.weight, gain=1)
         nn.init.orthogonal_(self.sigma_head.weight, gain=1)
 
@@ -616,26 +614,28 @@ if __name__ == "__main__":
         0 * np.ones((10, 85, 3)),
     ),axis=1)
     noise = np.random.normal(0, var)
+    import traceback   
+    try:
+        # q, r = Params.q, Params.r
+        q, r = 1, 10
+        env = make_env("1", q=q, r=r)
 
-    # try:
-    #     # q, r = Params.q, Params.r
-    #     q, r = 1, 10
-    #     env = make_env("1", q=q, r=r)
-    #     ppo = PPO(env=env, logger=logger, q=q, r=r, args=Params)
-    #     ppo.train()
+        ppo = PPO(env=env, logger=logger, q=q, r=r, args=Params)
+        ppo.train()
     #     # ppo.test(q=q, r=r, adv=False, noise=noise)
-        
-    # except Exception as e:
-    #     print(f"exception: {traceback.print_exc()}")
 
-    q_r_pair = [
-        # (20, 1), (10, 1), (1, 1), (1, 3), (1, 5), (1, 7)
-        (1, 1), (1, 3), (1, 5), (1, 10)
-    ]
+      
+    except Exception as e:
+        print(f"exception: {traceback.print_exc()}")
 
-    for adv in [False]:
-        for q, r in q_r_pair:
-            env = make_env("1", q=q, r=r)
-            args = Params(adversary_attack=adv)
-            ppo = PPO(env=env, logger=logger, q=q, r=r, args=args)
-            ppo.test(noise=noise)
+    # q_r_pair = [
+    #     # (20, 1), (10, 1), (1, 1), (1, 3), (1, 5), (1, 7)
+    #     (1, 1), (1, 3), (1, 5), (1, 10)
+    # ]
+
+    # for adv in [False]:
+    #     for q, r in q_r_pair:
+    #         env = make_env("1", q=q, r=r)
+    #         args = Params(adversary_attack=adv)
+    #         ppo = PPO(env=env, logger=logger, q=q, r=r, args=args)
+    #         ppo.test(noise=noise)

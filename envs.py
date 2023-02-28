@@ -3,7 +3,6 @@ from scipy import io
 import gym
 from gym import spaces
 from gym.utils import seeding
-# from PPOPolicy import PPO
 from logger import Logger
 
 logger = Logger.get_logger(__name__)
@@ -141,10 +140,9 @@ class ShellEnv(gym.Env):
         self.y = self.yk[0, :]
 
         e = (self.goal[:, self.num_step - 1] - (self.y + self.noise[self.num_step - 1, :])).reshape(self.ny,)
-        # e = (e - e.mean()) / (e.std() + 1e-8) + e.mean()
         '''
         update state 
-        '''
+        ''' 
         current_state = np.vstack(
             (
                 self.goal[:, self.num_step - 1].reshape(self.ny, 1),
@@ -186,7 +184,6 @@ class ShellEnv(gym.Env):
     def reset(self):
         goal = self.goal[:, -self.back:]
         error = self.goal[:, -self.back:]
-        # error = (error - error.mean()) / (error.std() + 1e-8) + error.mean()
         action = np.zeros((self.nu, self.back))
         self.state = np.vstack((goal, error, action))
         # self.state = np.vstack((error, action))

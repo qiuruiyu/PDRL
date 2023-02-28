@@ -18,9 +18,8 @@ param_list: List[Params] = []
 num_workers = 10
 
 q_r_pair = [
-    # (1, 1)
-    # (1, 1), (1, 3), (1, 5), (1, 7), (1, 9)
     (1, 1)
+    # (1, 1), (1, 3), (1, 5), (1, 7), (1, 9)
 ]
 
 num_episode = {
@@ -89,8 +88,8 @@ if __name__ == "__main__":
         #         eval_freq=5000,
         #         n_eval_episodes=10,
         #         # callback_after_eval=stop_train_callback,
-        #         log_path='./tmp/q_'+str(q)+'_r_'+str(r)+'/Log',
-        #         best_model_save_path='./tmp/q_'+str(q)+'_r_'+str(r)+'/Evalpoint',
+        #         log_path='./data/agents/q_'+str(q)+'_r_'+str(r)+'/Log',
+        #         best_model_save_path='./data/agents/q_'+str(q)+'_r_'+str(r)+'/Evalpoint',
         #         deterministic=True,  
         #         render=False,
         #     )
@@ -106,12 +105,12 @@ if __name__ == "__main__":
         #     learning_rate=square_schedule(7e-4),
         #     env=env,
         #     verbose=1,
-        #     device='cpu'
-        #    # tensorboard_log='./tmp/tensorboard/q_'+str(q)+'_r_'+str(r),
+        #     device='cpu',
+        #     tensorboard_log='./data/agents/tensorboard/q_'+str(q)+'_r_'+str(r),
         # )
 
-        # agent.learn(total_timesteps=6000000, callback=callback)
-        # agent.save('./tmp/q_'+str(q)+'_r_'+str(r)+'/model')
+        # agent.learn(total_timesteps=5000000, callback=callback)
+        # agent.save('./data/agents/q_'+str(q)+'_r_'+str(r)+'/model')
 
         ppo = PPO(
             env = env,

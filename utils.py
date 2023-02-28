@@ -56,7 +56,7 @@ def criterion(data, target):
     return IAE, ISE, ITAE, ITSE
 
 
-def reward_cutting(reward: Union[List, np.ndarray], cutting_point: int = -800):
+def reward_cutting(step:Union[List, np.ndarray], reward: Union[List, np.ndarray], cutting_point: int = -800):
     '''
     A method used to re-cut the reward array so that the reward curve looks better 
     '''
@@ -65,17 +65,24 @@ def reward_cutting(reward: Union[List, np.ndarray], cutting_point: int = -800):
     else: 
         res = reward 
     idx = np.where(res >= cutting_point)
+    step = step[idx]
+    step -= step[0]
     res = res[idx]
-    return res
+    return step, res
 
 
-def filter_data(data, avg_win=20):
-    iter, rwd, std = [], [], [] 
-    for i in range(len(data) - avg_win):
-        iter.append(i+1)
-        rwd.append(np.sum(data[i:i+avg_win])/avg_win)
-        std.append(np.std(data[i:i+avg_win]))
-    return iter, rwd, std     
+def filter_data(step, value, avg_win=20):
+    res_step, rwd, std = [], [], [] 
+    for i in range(len(value) - avg_win):
+        res_step.append(step[i])
+        rwd.append(np.mean(value[i:i+avg_win]))
+        std.append(np.std(value[i:i+avg_win]))
+    return res_step, rwd, std
+    # for i in range(len(data) - avg_win):
+    #     iter.append(i+1)
+    #     rwd.append(np.sum(data[i:i+avg_win])/avg_win)
+    #     std.append(np.std(data[i:i+avg_win]))
+    # return iter, rwd, std     
 
 
 def reward_plot(iter, rwd, std, color, dpi=100, type='normal'):
