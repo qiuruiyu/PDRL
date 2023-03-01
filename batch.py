@@ -1,8 +1,8 @@
 from typing import List, Callable
 from config import Params
 from logger import Logger
-from policy.PPOPolicy import PPO
-# from stable_baselines3 import PPO
+# from policy.PPOPolicy import PPO 
+from stable_baselines3 import PPO
 from stable_baselines3.common.callbacks import EvalCallback, CallbackList
 from stable_baselines3.common.utils import Schedule, set_random_seed
 from utils import make_env
@@ -83,40 +83,41 @@ if __name__ == "__main__":
 #             env_kwargs={'Tsim': 100, 'Q':base_Q*q, 'R':base_R*r, 'gamma':0.95}
 # )
 
-        # evalCallback = EvalCallback(
-        #         eval_env=env,
-        #         eval_freq=5000,
-        #         n_eval_episodes=10,
-        #         # callback_after_eval=stop_train_callback,
-        #         log_path='./data/agents/q_'+str(q)+'_r_'+str(r)+'/Log',
-        #         best_model_save_path='./data/agents/q_'+str(q)+'_r_'+str(r)+'/Evalpoint',
-        #         deterministic=True,  
-        #         render=False,
-        #     )
+        evalCallback = EvalCallback(
+                eval_env=env,
+                eval_freq=5000,
+                n_eval_episodes=10,
+                # callback_after_eval=stop_train_callback,
+                log_path='./data/agents/q_'+str(q)+'_r_'+str(r)+'/Log',
+                best_model_save_path='./data/agents/q_'+str(q)+'_r_'+str(r)+'/Evalpoint',
+                deterministic=True,  
+                render=False,
+            )
         # stop_train_callback = StopTrainingOnNoModelImprovement(
         #         max_no_improvement_evals=100, 
         #         min_evals=300,
         #         verbose=1
         #     )
-        # callback = CallbackList([evalCallback])
+        callback = CallbackList([evalCallback])
 
-        # agent = PPO(
-        #     policy='MlpPolicy',
-        #     learning_rate=square_schedule(7e-4),
-        #     env=env,
-        #     verbose=1,
-        #     device='cpu',
-        #     tensorboard_log='./data/agents/tensorboard/q_'+str(q)+'_r_'+str(r),
-        # )
-
-        # agent.learn(total_timesteps=5000000, callback=callback)
-        # agent.save('./data/agents/q_'+str(q)+'_r_'+str(r)+'/model')
-
-        ppo = PPO(
-            env = env,
-            logger = logger, 
-            q = q,
-            r = r, 
-            args = Params()
+        agent = PPO(
+            policy='MlpPolicy',
+            learning_rate=square_schedule(7e-4),
+            env=env,
+            verbose=1,
+            device='cpu',
+            tensorboard_log='./data/agents/tensorboard/q_'+str(q)+'_r_'+str(r),
+            n_steps=1024
         )
-        ppo.train()
+
+        agent.learn(total_timesteps=5000000, callback=callback)
+        agent.save('./data/agents/q_'+str(q)+'_r_'+str(r)+'/model')
+
+        # ppo = PPO(
+        #     env = env,
+        #     logger = logger, 
+        #     q = q,
+        #     r = r, 
+        #     args = Params()
+        # )
+        # ppo.train()

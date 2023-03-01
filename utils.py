@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt 
 from envs import ShellEnv
 import scipy.linalg
+import gym 
 
 
 def make_env(id: str, q=1, r=1, goal=1, seed=None):
@@ -11,7 +12,7 @@ def make_env(id: str, q=1, r=1, goal=1, seed=None):
     Return env, and params: q, r 
     """
     P = 30
-    M = 10
+    M = 5
     base_Q = scipy.linalg.block_diag(np.eye(P), np.eye(P), np.eye(P))
     base_R = scipy.linalg.block_diag(np.eye(M), np.eye(M), np.eye(M))
     env = ShellEnv(
@@ -22,6 +23,7 @@ def make_env(id: str, q=1, r=1, goal=1, seed=None):
         goal=goal,
     )
 
+    # env = gym.make('Pendulum-v1')
     return env
 
 
