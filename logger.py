@@ -11,8 +11,8 @@ formatter = logging.Formatter(LOG_FORMAT)  # , datefmt="%H:%M:%S"
 
 
 class Logger:
-    log_dir = os.environ['HOME']
-    # log_dir = 'D:'
+    # log_dir = os.environ['HOME']
+    log_dir = 'D:'
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
 

@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from envs import ShellEnv
 import scipy.linalg
 import gym 
+import json
 
 
 def make_env(id: str, q=1, r=1, goal=1, seed=None):
@@ -45,6 +46,12 @@ def load_pickle(path):
             return res
         except Exception as e:
             print('pickle load error')
+
+
+def load_json(path):
+    with open(path, 'rb') as f:
+        data = json.load(f)
+    return data     
 
 
 def criterion(data, target):

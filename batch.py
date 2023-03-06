@@ -5,6 +5,8 @@ from logger import Logger
 from stable_baselines3 import PPO
 from stable_baselines3.common.callbacks import EvalCallback, CallbackList
 from stable_baselines3.common.utils import Schedule, set_random_seed
+from stable_baselines3.common.monitor import Monitor
+from stable_baselines3.common.results_plotter import load_results, ts2xy
 from utils import make_env
 from envs import ShellEnv
 import numpy as np 
@@ -18,8 +20,7 @@ param_list: List[Params] = []
 num_workers = 10
 
 q_r_pair = [
-    (1, 1)
-    # (1, 1), (1, 3), (1, 5), (1, 7), (1, 9)
+    (1, 3)
 ]
 
 num_episode = {
@@ -71,53 +72,59 @@ if __name__ == "__main__":
         base_Q = scipy.linalg.block_diag(np.eye(P), np.eye(P), np.eye(P))
         base_R = scipy.linalg.block_diag(np.eye(M), np.eye(M), np.eye(M))
 
-        env = make_env(
-            id = 'train',
-            q = q,
-            r = r,
-            goal = 1,
-        )
-#         env = make_vec_env(
-#             ShellEnv,
-#             n_envs=10,
-#             env_kwargs={'Tsim': 100, 'Q':base_Q*q, 'R':base_R*r, 'gamma':0.95}
-# )
 
-        evalCallback = EvalCallback(
-                eval_env=env,
-                eval_freq=5000,
-                n_eval_episodes=10,
-                # callback_after_eval=stop_train_callback,
-                log_path='./data/agents/q_'+str(q)+'_r_'+str(r)+'/Log',
-                best_model_save_path='./data/agents/q_'+str(q)+'_r_'+str(r)+'/Evalpoint',
-                deterministic=True,  
-                render=False,
+        for t in range(5):
+            '''
+            train 5 sessions for each agents, and get the average  
+            '''
+            env = make_env(
+                id = 'train',
+                q = q,
+                r = r,
+                goal = 1,
             )
-        # stop_train_callback = StopTrainingOnNoModelImprovement(
-        #         max_no_improvement_evals=100, 
-        #         min_evals=300,
-        #         verbose=1
-        #     )
-        callback = CallbackList([evalCallback])
+    #         env = make_vec_env(
+    #             ShellEnv,
+    #             n_envs=10,
+    #             env_kwargs={'Tsim': 100, 'Q':base_Q*q, 'R':base_R*r, 'gamma':0.95}
+    # )
 
-        agent = PPO(
-            policy='MlpPolicy',
-            learning_rate=square_schedule(7e-4),
-            env=env,
-            verbose=1,
-            device='cpu',
-            tensorboard_log='./data/agents/tensorboard/q_'+str(q)+'_r_'+str(r),
-            n_steps=1024
-        )
+            evalCallback = EvalCallback(
+                    eval_env=env,
+                    eval_freq=5000,
+                    n_eval_episodes=10,
+                    # callback_after_eval=stop_train_callback,
+                    log_path='./data/agents/q_'+str(q)+'_r_'+str(r)+'/Log',
+                    best_model_save_path='./data/agents/q_'+str(q)+'_r_'+str(r)+'/Evalpoint',
+                    deterministic=True,  
+                    render=False,
+                )
+            # stop_train_callback = StopTrainingOnNoModelImprovement(
+            #         max_no_improvement_evals=100, 
+            #         min_evals=300,
+            #         verbose=1
+            #     )
+            callback = CallbackList([evalCallback])
 
-        agent.learn(total_timesteps=5000000, callback=callback)
-        agent.save('./data/agents/q_'+str(q)+'_r_'+str(r)+'/model')
+            agent = PPO(
+                policy='MlpPolicy',
+                learning_rate=square_schedule(7e-4),
+                env=env,
+                verbose=1,
+                device='cpu',
+                tensorboard_log='./data/agents/tensorboard/q_'+str(q)+'_r_'+str(r),
+                n_steps=256,
+                batch_size=128,
+            )
 
-        # ppo = PPO(
-        #     env = env,
-        #     logger = logger, 
-        #     q = q,
-        #     r = r, 
-        #     args = Params()
-        # )
-        # ppo.train()
+            agent.learn(total_timesteps=2000000, callback=callback)
+            agent.save('./data/agents/q_'+str(q)+'_r_'+str(r)+'/model')
+
+            # ppo = PPO(
+            #     env = env,
+            #     logger = logger, 
+            #     q = q,
+            #     r = r, 
+            #     args = Params()
+            # )
+            # ppo.train()
