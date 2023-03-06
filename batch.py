@@ -20,7 +20,7 @@ param_list: List[Params] = []
 num_workers = 10
 
 q_r_pair = [
-    (1, 3)
+    (1, 1), (1, 3), (1, 5), (1, 7), (1, 9)
 ]
 
 num_episode = {
